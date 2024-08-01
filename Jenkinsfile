@@ -58,7 +58,7 @@ pipeline {
  // Building Docker images
     stage('Building image | Upload to Harbor Repo') {
       steps{
-	    sh 'chown jenkins:jenkins  /var/lib/jenkins/workspace/to-do-application/shell.sh' 
+	  
             sh '/var/lib/jenkins/workspace/to-do-application/shell.sh'  
     }
       
