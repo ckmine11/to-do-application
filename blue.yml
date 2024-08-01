@@ -40,7 +40,7 @@ spec:
    app: to-do-application
    version: "1.0"
  ports:
- - port: 30000
-   targetPort: 30000
+ - port: 3000
+   targetPort: 3000
    protocol: TCP
    nodePort: 30000
