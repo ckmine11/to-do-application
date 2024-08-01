@@ -1,6 +1,6 @@
 #! /bin/bash
 cd /var/lib/jenkins/workspace/to-do-application/
-#sudo su - jenkins -s/bin/bash
+sudo su - jenkins -s/bin/bash
 #docker logout   harbor.cluster.com/sample-project
 docker login -u admin --password root harbor.cluster.com
 docker image build -t  $JOB_NAME:v1.$BUILD_ID .
