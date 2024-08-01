@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: to-do-application
+  namespace: default
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+     matchLabels:
+         app: to-do-application
+  template:
+    metadata:
+      labels:
+        app: to-do-application
+        version: "1.0"
+    spec:
+      containers:
+        - name: to-do-application
+          image: replace
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+      serviceAccountName: default            
+      imagePullSecrets:
+           - name: regcred
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: to-do-application
+ namespace: default
+spec:
+ type: NodePort
+ selector:
+   app: to-do-application
+   version: "1.0"
+ ports:
+ - port: 3000
+   targetPort: 3000
+   protocol: TCP
+   nodePort: 3000 
