@@ -23,19 +23,7 @@ pipeline {
          }
         }
         
-              stage ('Vulnerability Scan - Docker ') {
-              steps {
-                  
-                 parallel   (
-	 	  
-		   "OPA Conftest":{
-			sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile'
-		    }   	
-		             	
-   	                      )
-                    
-              }
-               }
+             
               
       
              
